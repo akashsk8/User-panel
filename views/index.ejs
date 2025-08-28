@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>User-Panel</title>
+</head>
+<body class="bg-blue-300">
+    <div>
+      <h1 class="w-2/3 text-4xl m-auto bg-blue-500 rounded-md px-2 py-3 mt-2">Wellcome to User Panel Dashboard...A full-stack short project</h1>
+      <hr class="text-blue-200 w-full mt-1"/>
+     <div class="flex justify-between px-2">
+       <h3>To see users click on User-Dashboard button below</h3>
+       <div class="flex gap-2 mt-1">
+        <% if(token == undefined){ %>
+        <button class="bg-blue-800 text-white px-3 py-2 rounded-md active:bg-blue-600"><a href="/login">Login</a></button>
+        <button class="bg-blue-800 text-white px-3 py-2 rounded-md active:bg-blue-600"><a href="/register">Register</a></button>
+        <% } else { %>
+          <p>Hallo <%= admin.username %></p>
+        <button class="bg-red-800 text-white px-3 py-2 rounded-md active:bg-blue-600"><a href="/logout">Logout</a></button>
+        <% } %>
+       </div>
+     </div>
+     <button class="bg-blue-800 text-white px-3 py-2 rounded-md ml-150 mt-10 active:bg-blue-600"><a href="/dashboard">User-Dashboard</a></button>
+    </div>
+</body>
+</html>

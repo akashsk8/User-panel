@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Login</title>
+</head>
+<body class="bg-blue-300">
+    <div>
+     <h1 class='text-4xl mx-2 ny-2 font-bold text-blue-800'>Login</h1>
+      <div class='flex justify-center mt-2'>
+        <form action="/login" method='post' class='flex flex-col gap-5 bg-blue-200 py-10 px-2 rounded-md border-1 border-white shadow-2xl shadow-blue-700'>
+        <input type="email" name="email" placeholder='Email'class='w-100 h-10 bg-white rounded-md px-2 outline-none' required/>
+        <input type="password" name="password" placeholder='Password' class='h-10 bg-white rounded-md px-2 outline-none' required/>
+        <input type="submit" value="Login" class='bg-blue-950 w-30 h-10 rounded-md m-auto text-white active:bg-blue-900'/>
+        <div class='m-auto'>Don't have an account?<a href='/register' class='text-blue-800 font-bold'>Register here</a></div>
+        </form>
+      </div>
+</body>
+</html>
