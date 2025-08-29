@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title>Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <title>Dashboard</title>
 </head>
-<body class="bg-blue-300">
-    <div>
-      <h1 class='w-full text-center text-blue-700 text-4xl'>User-Dashboard</h1>
-      <button class='bg-green-600 px-3 py-2 rounded-md ml-2'><a href='/addUser'>Add user</a></button>
-      <div class='flex justify-center h-fit'>
-        <table class='w-2/3 border-1 border-white table-auto'>
-          <thead class='bg-blue-900 text-white'>
-          <tr>
-          <th class='border-r-1 border-white'>Sl No.</th>
-          <th class='border-r-1 border-white'>First-name</th>
-          <th class='border-r-1 border-white'>Last-name</th>
-          <th class='border-r-1 border-white'>Email</th>
-          <th class='border-r-1 border-white'>City</th>
-          <th class='border-r-1 border-white'>Actions</th>
-          </tr>
-          </thead>
-          <tbody class='text-center'>
-            <% users.map((user,index)=>{ %>
-            <tr>
-            <td class='bg-orange-600 border-1 border-white'><%= index+1 %></td>
-            <td class='border-1 border-white'><%= user.firstname %></td>
-            <td class='border-1 border-white'><%= user.lastname %></td>
-            <td class='border-1 border-white'><%= user.email %></td>
-            <td class='border-1 border-white'><%= user.city %></td>
-            <td class='border-1 border-white py-1'>
-              <div>
-                <a href="/edit/<%= user._id %>" class="bg-green-700 px-2 py-1 text-white rounded-md">Edit</a>
-                <a href="/delete/<%= user._id %>" class="bg-red-700 px-2 py-1 text-white rounded-md">Delete</a>
-              </div>
-            </td>
-            </tr>
-            <%})%>
-          </tbody>
-        </table>
-      </div>
+<body class="bg-blue-300 min-h-screen">
+  <div class="container mx-auto px-4 py-6">
+    
+    <!-- Title -->
+    <h1 class="text-center text-blue-700 text-3xl md:text-4xl font-bold mb-6">User Dashboard</h1>
+
+    <!-- Add User Button -->
+    <div class="flex justify-end mb-4">
+      <a href="/addUser" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md">
+        Add User
+      </a>
     </div>
+
+    <!-- Responsive Table Wrapper -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-white table-auto">
+        <thead class="bg-blue-900 text-white">
+          <tr>
+            <th class="px-3 py-2 border border-white">Sl No.</th>
+            <th class="px-3 py-2 border border-white">First Name</th>
+            <th class="px-3 py-2 border border-white">Last Name</th>
+            <th class="px-3 py-2 border border-white">Email</th>
+            <th class="px-3 py-2 border border-white">City</th>
+            <th class="px-3 py-2 border border-white">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-center bg-white">
+          <% users.map((user, index) => { %>
+            <tr class="hover:bg-gray-100">
+              <td class="px-3 py-2 border border-white bg-orange-600 text-white"><%= index + 1 %></td>
+              <td class="px-3 py-2 bg-gray-300 border border-white"><%= user.firstname %></td>
+              <td class="px-3 py-2 bg-gray-300 border border-white"><%= user.lastname %></td>
+              <td class="px-3 py-2 bg-gray-300 border border-white"><%= user.email %></td>
+              <td class="px-3 py-2 bg-gray-300 border border-white"><%= user.city %></td>
+              <td class="px-3 py-2 bg-gray-300 border border-white">
+                <div class="flex justify-center space-x-2">
+                  <a href="/edit/<%= user._id %>" class="bg-green-700 hover:bg-green-800 text-white px-3 py-1 rounded-md text-sm">
+                    Edit
+                  </a>
+                  <a href="/delete/<%= user._id %>" class="bg-red-700 hover:bg-red-800 text-white px-3 py-1 rounded-md text-sm">
+                    Delete
+                  </a>
+                </div>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 </html>

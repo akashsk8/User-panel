@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>User-Panel</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>User Panel Dashboard</title>
 </head>
-<body class="bg-blue-300">
-    <div>
-      <h1 class="w-2/3 text-4xl m-auto bg-blue-500 rounded-md px-2 py-3 mt-2">Wellcome to User Panel Dashboard...A full-stack short project</h1>
-      <hr class="text-blue-200 w-full mt-1"/>
-     <div class="flex justify-between px-2">
-       <h3>To see users click on User-Dashboard button below</h3>
-       <div class="flex gap-2 mt-1">
-        <% if(token == undefined){ %>
-        <button class="bg-blue-800 text-white px-3 py-2 rounded-md active:bg-blue-600"><a href="/login">Login</a></button>
-        <button class="bg-blue-800 text-white px-3 py-2 rounded-md active:bg-blue-600"><a href="/register">Register</a></button>
+<body class="bg-blue-100 min-h-screen flex items-center justify-center px-4">
+  <div class="bg-white shadow-lg rounded-lg w-full max-w-4xl p-6">
+    
+    <!-- Header -->
+    <h1 class="text-3xl md:text-4xl font-bold text-center text-blue-700 mb-4">
+      Welcome to the User Panel Dashboard
+    </h1>
+    <p class="text-center text-gray-600 mb-6">
+      A full-stack short project for user management.
+    </p>
+    <hr class="border-blue-300 mb-6" />
+
+    <!-- Action Area -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+      <h3 class="text-lg font-medium text-gray-700">
+        To see users, click on the <span class="text-blue-700 font-semibold">User Dashboard</span> button below.
+      </h3>
+
+      <!-- Auth Buttons -->
+      <div class="flex flex-wrap gap-2">
+        <% if (token == undefined) { %>
+          <a href="/login" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">
+            Login
+          </a>
+          <a href="/register" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition">
+            Register
+          </a>
         <% } else { %>
-          <p>Hallo <%= admin.username %></p>
-        <button class="bg-red-800 text-white px-3 py-2 rounded-md active:bg-blue-600"><a href="/logout">Logout</a></button>
+          <p class="text-gray-700 font-semibold flex items-center gap-2">
+            Hello, <span class="text-blue-600"><%= admin.username %></span>
+          </p>
+          <a href="/logout" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition">
+            Logout
+          </a>
         <% } %>
-       </div>
-     </div>
-     <button class="bg-blue-800 text-white px-3 py-2 rounded-md ml-150 mt-10 active:bg-blue-600"><a href="/dashboard">User-Dashboard</a></button>
+      </div>
     </div>
+
+    <!-- Dashboard Button -->
+    <div class="text-center">
+      <a href="/dashboard" class="inline-block bg-blue-700 hover:bg-blue-800 text-white text-lg px-6 py-3 rounded-md transition">
+        Go to User Dashboard
+      </a>
+    </div>
+
+  </div>
 </body>
 </html>

@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>Login</title>
 </head>
-<body class="bg-blue-300">
-    <div>
-     <h1 class='text-4xl mx-2 ny-2 font-bold text-blue-800'>Login</h1>
-      <div class='flex justify-center mt-2'>
-        <form action="/login" method='post' class='flex flex-col gap-5 bg-blue-200 py-10 px-2 rounded-md border-1 border-white shadow-2xl shadow-blue-700'>
-        <input type="email" name="email" placeholder='Email'class='w-100 h-10 bg-white rounded-md px-2 outline-none' required/>
-        <input type="password" name="password" placeholder='Password' class='h-10 bg-white rounded-md px-2 outline-none' required/>
-        <input type="submit" value="Login" class='bg-blue-950 w-30 h-10 rounded-md m-auto text-white active:bg-blue-900'/>
-        <div class='m-auto'>Don't have an account?<a href='/register' class='text-blue-800 font-bold'>Register here</a></div>
-        </form>
+<body class="bg-blue-300 min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-md">
+    
+    <!-- Page Title -->
+    <h1 class="text-3xl md:text-4xl font-bold text-blue-800 text-center mb-6">Login</h1>
+
+    <!-- Login Form -->
+    <form
+      action="/login"
+      method="post"
+      class="bg-blue-200 p-6 md:p-8 rounded-md border border-white shadow-xl shadow-blue-700 space-y-5"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+        class="w-full h-10 bg-white rounded-md px-3 outline-none"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+        class="w-full h-10 bg-white rounded-md px-3 outline-none"
+      />
+
+      <!-- Submit Button -->
+      <div class="flex justify-center">
+        <input
+          type="submit"
+          value="Login"
+          class="bg-blue-950 hover:bg-blue-900 text-white w-40 h-10 rounded-md transition"
+        />
       </div>
+
+      <!-- Register Link -->
+      <div class="text-center text-sm">
+        Don't have an account?
+        <a href="/register" class="text-blue-800 font-bold hover:underline">Register here</a>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
